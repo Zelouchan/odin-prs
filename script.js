@@ -1,10 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
-// asks for the name of the player and displays it on the page
+// asks for the name of the player and displays it on the page WORKING FINE
 function getName(){
-   let player = prompt("What should i call you?")
-   return player
+   let player = prompt("What should I call you?")
+   {return player}
 }
 
 const container = document.querySelector(".name");
@@ -15,12 +15,16 @@ content.textContent = getName();
 
 container.appendChild(content);
 
-// asks for input and checks if it is correct
-function getHumanChoice() {
-    
-    }
 
-// loops the game
+// recognizes which button is clicked and puts input into getHumanChoice
+    document.querySelector('.btnpaper').onclick = () => getHumanChoice('papier');
+    document.querySelector('.btnrock').onclick = () => getHumanChoice('steen');
+    document.querySelector('.btnscissors').onclick = () => getHumanChoice('schaar');
+    
+let humanChoice = getHumanChoice();
+
+
+// loops the game NO NEED TO TOUCH
   function playGame() {
     for (let i = 0; i < 1; i++)
      {
@@ -39,14 +43,7 @@ function getHumanChoice() {
 
 const computerChoice = getComputerChoice();
 
-// asks fur human input, loops if wrong answer is given untill right answer is put in
-
-            do {
-                person = prompt("Pick Paper, Rock or Scissors").toLowerCase();  
-             }
-             while (getHumanChoice() === 'wrong' );
-
-        const humanChoice = getHumanChoice();
+        
         getHumanChoice();
         getComputerChoice();
 
@@ -70,6 +67,7 @@ const computerChoice = getComputerChoice();
                 return 'lose';}
             }
 
+            // prints the choices of player and computer to the page
             const containers = document.querySelector(".choices");
 
             const contents = document.createElement("div");
@@ -79,14 +77,6 @@ const computerChoice = getComputerChoice();
             containers.appendChild(contents);
 
         playRound(humanChoice, computerChoice);
-        console.log("You played " + person);
-        console.log("Computer played " + computerChoice);
-        
-        console.log(message());
-        score();
-        console.log("You have " + humanScore + " points." );
-        console.log("Computer has " + computerScore + " points.");
-
 
         // win or lose message
         function message() {
@@ -101,7 +91,7 @@ const computerChoice = getComputerChoice();
                             }
              }
 
-        // displays the win or lose message
+        // displays the win or lose message WORKING FINE
         const container = document.querySelector(".result");
 
 const content = document.createElement("div");

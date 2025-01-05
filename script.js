@@ -1,32 +1,40 @@
 let humanScore = 0;
 let computerScore = 0;
+let userChoice = "";
 
 // asks for the name of the player and displays it on the page WORKING FINE
 function getName(){
    let player = prompt("What should I call you?")
-   {return player}
+   return player;
 }
 
 const container = document.querySelector(".name");
-
 const content = document.createElement("div");
-content.classList.add(".name");
+content.classList.add("name");
 content.textContent = getName();
+container.appendChild(content);    
 
-container.appendChild(content);
+//recognizes which button is clicked and puts input into getHumanChoice
+const buttons = document.querySelectorAll("button");
 
-// recognizes which button is clicked and puts input into getHumanChoice
-    document.querySelector('.btnpaper').onclick = () => getHumanChoice('paper');
-    document.querySelector('.btnrock').onclick = () => getHumanChoice('rock');
-    document.querySelector('.btnscissors').onclick = () => getHumanChoice('scissors');
-    
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (button.id === "paper") {
+            userChoice = button.id; 
+        } else if (button.id === "rock") {
+            userChoice = button.id; 
+        } else if (button.id === "scissors") {
+            userChoice = button.id; 
+        }
+        });
+    });
+
 
 // loops the game
-
-const loops = Math.max(computerScore, humanScore);
+// const loops = Math.max(computerScore, humanScore);
 
   function playGame() {
-    for (let i = 0; loops < 6; i++)
+    for (let i = 0; i < 5; i++)
      {
         // caluclates random number and gives value
     function getComputerChoice() {
@@ -41,19 +49,17 @@ const loops = Math.max(computerScore, humanScore);
         }
     }
 
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        const humanChoice = userChoice;
 
-        getHumanChoice();
+
+        // getHumanChoice();
         getComputerChoice();
+
 
 // plays the actual game
         function playRound() {
-            if        (humanChoice == 'paper' && computerChoice == "paper") {
-               return 'draw'} 
-            else if   (humanChoice == 'rock' && computerChoice == "rock") {
-                return 'draw'} 
-            else if   (humanChoice == 'scissors' && computerChoice == "scissors") {
+            if        (humanChoice === computerChoice) {
                 return 'draw'}
                 
             else if (humanChoice == 'paper' && computerChoice == "rock") {
@@ -69,11 +75,9 @@ const humanChoice = getHumanChoice();
 
             // prints the choices of player and computer to the page
             const containers = document.querySelector(".chosen");
-
             const contents = document.createElement("div");
             contents.classList.add(".choices");
-            contents.textContent = ("You picked " + person + " and computer picked "+ computerChoice);
-            
+            contents.textContent = ("You picked " + userChoice + " and computer picked "+ computerChoice);
             containers.appendChild(contents);
 
         playRound(humanChoice, computerChoice);
@@ -81,9 +85,8 @@ const humanChoice = getHumanChoice();
         // win or lose message
         function message() {
             if    (playRound() == 'draw') { 
-                    return "It is a draw! Try again"
-                        }
-                        
+                    return "It is a tie! Try again"
+                        }             
             else if (playRound() == 'win') {
                    return ("You Win! " + humanChoice + " beats " + computerChoice + "." ); }          
             else { 
@@ -93,11 +96,9 @@ const humanChoice = getHumanChoice();
 
         // displays the win or lose message WORKING FINE
         const container1 = document.querySelector(".result");
-
         const content1 = document.createElement("div");
         content1.classList.add(".result");
         content1.textContent = message();
-
         container1.appendChild(content1);
                             
         function score() {

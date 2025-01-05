@@ -65,11 +65,11 @@ buttons.forEach((button) => {
             containers.appendChild(contents);
              }
 
-// Message update needed
         function updateMessage(result, userChoice, computerChoice) {
             let winner = ("You won! "+ userChoice + " beats " + computerChoice+".");
             let loser = ("You lost! "+ computerChoice + " beats " + userChoice+".");
             let drawer = ("It's a tie, try again.");
+
             const containers = document.querySelector(".result");
             containers.innerHTML = "";
 
@@ -115,3 +115,5 @@ buttons.forEach((button) => {
                 alert("Computer wins this Game...");
         }
     }
+
+    // add game reset

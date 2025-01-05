@@ -38,6 +38,7 @@ body {
     font-size: xx-large;
 }
 
+/* Add icons? */
 .buttons {
     display: flex;
     flex-direction: row;

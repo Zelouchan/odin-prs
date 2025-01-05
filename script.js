@@ -30,19 +30,18 @@ buttons.forEach((button) => {
         updateResult(result);
         updateMessage(result, userChoice, computerChoice);
         updateChoices(userChoice, computerChoice);
+        winner(humanScore, computerScore);
         };
         
 
         function playRound(userChoice, computerChoice) {
-            if        (userChoice === computerChoice) {
-                return 'draw'}
-                
-            else if ((userChoice == 'paper' && computerChoice == "rock") ||
+            if (userChoice === computerChoice) {
+                return 'draw'
+            } else if ((userChoice == 'paper' && computerChoice == "rock") ||
             (userChoice == 'rock' && computerChoice == "scissors") ||
             (userChoice == 'scissors' && computerChoice == "paper")) {
-                return 'win'}
-                
-            else {
+                return 'win'
+            } else {
                 return 'lose';}
             }
 
@@ -58,43 +57,53 @@ buttons.forEach((button) => {
            }
        }  
        
-        // win or lose message
-        function message() {
-            if    (playRound() == 'draw') { 
-                    return "It is a tie! Try again"
-                        }             
-            else if (playRound() == 'win') {
-                   return ("You Win! " + humanChoice + " beats " + computerChoice + "." ); }          
-            else { 
-                    return ("You Lost! " + computerChoice + " beats " + humanChoice + ".");
-                            }
+        function updateChoices(userChoice, computerChoice) {
+            const containers = document.querySelector(".chosen");
+            containers.innerHTML = "";
+
+            const contents = document.createElement("div");
+            contents.classList.add(".choices");
+            contents.textContent = ("You picked " + userChoice + " and computer picked "+ computerChoice);
+            containers.appendChild(contents);
              }
 
-        // displays the win or lose message
-        const container1 = document.querySelector(".result");
-        const content1 = document.createElement("div");
-        content1.classList.add(".result");
-        content1.textContent = message();
-        container1.appendChild(content1);
-                            
-//         function score() {
-//             let result = playRound();
-//             if  (result === 'win') {
-//                 humanScore++;
-//                 }
-//             else if (result === 'lose') {
-//                 computerScore++;
-//                 }               
-//             return {computerScore, humanScore}}
-//             console.log(score);
-            
-//         }
-//   }  
-// prints the choices of player and computer to the page
-const containers = document.querySelector(".chosen");
-const contents = document.createElement("div");
-contents.classList.add(".choices");
-contents.textContent = ("You picked " + userChoice + " and computer picked "+ computerChoice);
-containers.appendChild(contents);
-    
-// playGame(); 
+        function updateMessage(result, userChoice, computerChoice) {
+            const containers = document.querySelector(".result");
+            containers.innerHTML = "";
+
+            const contents = document.createElement("div");
+            contents.classList.add(".result");
+            contents.textContent = ("You " + result+ "! " + userChoice + " beats "+ computerChoice);
+            containers.appendChild(contents);
+             }
+
+        function updateResult(result) {
+            if (result === "win") {
+                humanScore++;
+            } else if (result === "lose") {
+                computerScore++;
+            }
+            const containers = document.querySelector(".playerNameScore");
+            containers.innerHTML = "";
+
+            const contents = document.createElement("div");
+            contents.classList.add(".result");
+            contents.textContent = ("You: " + humanScore);
+            containers.appendChild(contents);
+
+            const container = document.querySelector(".computerScore");
+            container.innerHTML = "";
+
+            const content = document.createElement("div");
+            content.classList.add(".result");
+            content.textContent = ("Computer: " + computerScore);
+            container.appendChild(content);}
+
+
+            function winner(humanScore, computerScore) {
+                if (humanScore === 5) {
+                    alert("You win this Game!");
+                } else if (computerScore === 5) {
+                    alert("Computer wins this Game...");
+                }
+                }

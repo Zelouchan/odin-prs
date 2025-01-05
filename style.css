@@ -5,7 +5,7 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--bg-colour);
     color: var(--font-colour);
     margin: 0%;
@@ -16,8 +16,10 @@ body {
 .page {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 100vh;
 }
 
 .player {
@@ -33,7 +35,7 @@ body {
 
 .name,
 .computer {
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 .buttons {
@@ -44,7 +46,6 @@ body {
     font: 100;
     gap: 15%;
     width: 100%;
-    
 }
 
 button {
@@ -64,5 +65,8 @@ button {
 }
 
 .score {
-    width: 100%;
+    display: flex;
+    flex: row;
+    gap: 10vh;
+    padding-bottom: 10vh;
 }

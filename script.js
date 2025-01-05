@@ -15,18 +15,18 @@ content.textContent = getName();
 
 container.appendChild(content);
 
-
 // recognizes which button is clicked and puts input into getHumanChoice
-    document.querySelector('.btnpaper').onclick = () => getHumanChoice('papier');
-    document.querySelector('.btnrock').onclick = () => getHumanChoice('steen');
-    document.querySelector('.btnscissors').onclick = () => getHumanChoice('schaar');
+    document.querySelector('.btnpaper').onclick = () => getHumanChoice('paper');
+    document.querySelector('.btnrock').onclick = () => getHumanChoice('rock');
+    document.querySelector('.btnscissors').onclick = () => getHumanChoice('scissors');
     
-let humanChoice = getHumanChoice();
 
+// loops the game
 
-// loops the game NO NEED TO TOUCH
+const loops = Math.max(computerScore, humanScore);
+
   function playGame() {
-    for (let i = 0; i < 1; i++)
+    for (let i = 0; loops < 6; i++)
      {
         // caluclates random number and gives value
     function getComputerChoice() {
@@ -42,25 +42,25 @@ let humanChoice = getHumanChoice();
     }
 
 const computerChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
 
-        
         getHumanChoice();
         getComputerChoice();
 
 // plays the actual game
         function playRound() {
-            if        (humanChoice == 'papier' && computerChoice == "paper") {
+            if        (humanChoice == 'paper' && computerChoice == "paper") {
                return 'draw'} 
-            else if   (humanChoice == 'steen' && computerChoice == "rock") {
+            else if   (humanChoice == 'rock' && computerChoice == "rock") {
                 return 'draw'} 
-            else if   (humanChoice == 'schaar' && computerChoice == "scissors") {
+            else if   (humanChoice == 'scissors' && computerChoice == "scissors") {
                 return 'draw'}
                 
-            else if (humanChoice == 'papier' && computerChoice == "rock") {
+            else if (humanChoice == 'paper' && computerChoice == "rock") {
                 return 'win'} 
-            else if (humanChoice == 'steen' && computerChoice == "scissors") {
+            else if (humanChoice == 'rock' && computerChoice == "scissors") {
                 return 'win'} 
-            else if (humanChoice == 'schaar' && computerChoice == "paper") {
+            else if (humanChoice == 'scissors' && computerChoice == "paper") {
                 return 'win';}
                 
             else {
@@ -68,7 +68,7 @@ const computerChoice = getComputerChoice();
             }
 
             // prints the choices of player and computer to the page
-            const containers = document.querySelector(".choices");
+            const containers = document.querySelector(".chosen");
 
             const contents = document.createElement("div");
             contents.classList.add(".choices");
@@ -85,20 +85,20 @@ const computerChoice = getComputerChoice();
                         }
                         
             else if (playRound() == 'win') {
-                   return ("You Win! " + person + " beats " + computerChoice + "." ); }          
+                   return ("You Win! " + humanChoice + " beats " + computerChoice + "." ); }          
             else { 
-                    return ("You Lost! " + computerChoice + " beats " + person + ".");
+                    return ("You Lost! " + computerChoice + " beats " + computerChoice + ".");
                             }
              }
 
         // displays the win or lose message WORKING FINE
-        const container = document.querySelector(".result");
+        const container1 = document.querySelector(".result");
 
-const content = document.createElement("div");
-content.classList.add(".result");
-content.textContent = message();
+        const content1 = document.createElement("div");
+        content1.classList.add(".result");
+        content1.textContent = message();
 
-containers.appendChild(content);
+        container1.appendChild(content1);
                             
         function score() {
             let result = playRound();
@@ -109,6 +109,7 @@ containers.appendChild(content);
                 computerScore++;
                 }               
             return {computerScore, humanScore}}
+            console.log(score);
             
         }
   }  

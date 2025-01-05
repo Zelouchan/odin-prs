@@ -76,11 +76,11 @@ buttons.forEach((button) => {
             const contents = document.createElement("div");
             contents.classList.add(".result");
             if (result === "win") {
-                content.textContent = winner;
+                contents.textContent = winner;
             } else if (result === "lose") {
-                content.textContent = loser;
+                contents.textContent = loser;
             } else {
-                content.textContent = drawer;
+                contents.textContent = drawer;
             }
             containers.appendChild(contents);
              }

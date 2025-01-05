@@ -1,0 +1,41 @@
+:root {
+    --bg-colour: #262525;
+    --font-colour: white;
+}   
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-colour);
+    color: var(--font-colour);
+    margin: 0%;
+    text-align: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    gap: 15%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    font: 100;
+    gap: 15%
+}
+
+.outcome {
+    font: 100;
+}
+
+.score {
+    font: 100;
+}

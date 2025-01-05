@@ -1,24 +1,29 @@
 let humanScore = 0;
 let computerScore = 0;
 
+// asks for the name of the player and displays it on the page
+function getName(){
+   let player = prompt("What should i call you?")
+   return player
+}
+
+const container = document.querySelector(".name");
+
+const content = document.createElement("div");
+content.classList.add(".name");
+content.textContent = getName();
+
+container.appendChild(content);
+
 // asks for input and checks if it is correct
 function getHumanChoice() {
-    if ( person === 'paper' ) 
-        return "papier";
-     else if (person === 'rock') 
-        return "steen";
-     else if (person === 'scissors') 
-        return "schaar";
-        
-    else
-        alert("Invalid choice. Please enter 'rock', 'paper', or 'scissors'.");
-        return 'wrong';
+    
     }
 
 // loops the game
   function playGame() {
-    for ( let i = 0; i < 5; i++) {
-
+    for (let i = 0; i < 1; i++)
+     {
         // caluclates random number and gives value
     function getComputerChoice() {
      let result = Math.floor(Math.random() * 3) + 1;
@@ -65,6 +70,14 @@ const computerChoice = getComputerChoice();
                 return 'lose';}
             }
 
+            const containers = document.querySelector(".choices");
+
+            const contents = document.createElement("div");
+            contents.classList.add(".choices");
+            contents.textContent = ("You picked " + person + " and computer picked "+ computerChoice);
+            
+            containers.appendChild(contents);
+
         playRound(humanChoice, computerChoice);
         console.log("You played " + person);
         console.log("Computer played " + computerChoice);
@@ -73,7 +86,9 @@ const computerChoice = getComputerChoice();
         score();
         console.log("You have " + humanScore + " points." );
         console.log("Computer has " + computerScore + " points.");
-        
+
+
+        // win or lose message
         function message() {
             if    (playRound() == 'draw') { 
                     return "It is a draw! Try again"
@@ -85,6 +100,15 @@ const computerChoice = getComputerChoice();
                     return ("You Lost! " + computerChoice + " beats " + person + ".");
                             }
              }
+
+        // displays the win or lose message
+        const container = document.querySelector(".result");
+
+const content = document.createElement("div");
+content.classList.add(".result");
+content.textContent = message();
+
+containers.appendChild(content);
                             
         function score() {
             let result = playRound();

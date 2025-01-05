@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width= <device-width>, initial-scale=1.0">
     <title>Paper, Rock, Scissors</title>
 </head>
+
 <body>
-   
+
+    <div class="page">
+    <h1>Welcome to the Paper, Rock, and Scissors Game</h1>
+
+    <!-- Add event, put in name of player. Save prompt as a constant -->
+    <div class="player">
+        <div class="name"></div>
+        <div>against</div>
+        <div class="computer">Computer</div>
+    </div>
+
+    <!-- add pictures that fuction as a button -->
+    <div class="choices">
+        <div>Pick your choice:</div>
+
+        <div class="buttons">
+        <div class="btnpaper">one</div>
+        <div class="btnrock">two</div>
+        <div class="btnscissorcs">three</div>
+        </div>
+    </div>
+
+    <!-- Shows choices of player and computer and who won/lost -->
+    <div class="outcome">
+        <div class="choices"></div>
+        <div class="result"></div>
+    </div>
+
+    <!-- Shows the name of the player and score -->
+    <div class="score">
+        <div class="playerScore"></div>
+            <div class="playerNameScore">name and score</div>
+            <div class="computerScore">computer and score</div>
+    </div>
+</div> 
 </body>
 </html>

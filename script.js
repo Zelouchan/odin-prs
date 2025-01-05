@@ -65,13 +65,23 @@ buttons.forEach((button) => {
             containers.appendChild(contents);
              }
 
+// Message update needed
         function updateMessage(result, userChoice, computerChoice) {
+            let winner = ("You won! "+ userChoice + " beats " + computerChoice+".");
+            let loser = ("You lost! "+ computerChoice + " beats " + userChoice+".");
+            let drawer = ("It's a tie, try again.");
             const containers = document.querySelector(".result");
             containers.innerHTML = "";
 
             const contents = document.createElement("div");
             contents.classList.add(".result");
-            contents.textContent = ("You " + result+ "! " + userChoice + " beats "+ computerChoice);
+            if (result === "win") {
+                content.textContent = winner;
+            } else if (result === "lose") {
+                content.textContent = loser;
+            } else {
+                content.textContent = drawer;
+            }
             containers.appendChild(contents);
              }
 

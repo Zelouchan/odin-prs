@@ -2,7 +2,6 @@ let humanScore = 0;
 let computerScore = 0;
 let userChoice = "";
 
-// asks for the name of the player and displays it on the page WORKING FINE
 function getName(){
    let player = prompt("What should I call you?")
    return player;
@@ -14,7 +13,6 @@ content.classList.add("name");
 content.textContent = getName();
 container.appendChild(content);    
 
-//recognizes which button is clicked and puts input into getHumanChoice
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
@@ -100,10 +98,10 @@ buttons.forEach((button) => {
             container.appendChild(content);}
 
 
-            function winner(humanScore, computerScore) {
-                if (humanScore === 5) {
-                    alert("You win this Game!");
-                } else if (computerScore === 5) {
-                    alert("Computer wins this Game...");
-                }
-                }
+        function winner(humanScore, computerScore) {
+            if (humanScore === 5) {
+                alert("You win this Game!");
+            } else if (computerScore === 5) {
+                alert("Computer wins this Game...");
+        }
+    }
